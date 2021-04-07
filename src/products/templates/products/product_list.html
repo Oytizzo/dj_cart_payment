@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<br>
+<br>
+    <div class="row">
+        {% for object in object_list %}
+        <div class="col-sm-3 card">
+            <p>{{ object.name }}</p>
+            <p>Price: ${{ object.price }}</p>
+            {% if object in user.profile.ebooks.all %}
+            <p>You own this</p>
+            {% else %}
+            <a href="#" class="btn btn-warning">Add to cart</a>
+            {% endif %}
+        </div>
+        {% endfor %}
+        <div>
+            <br>
+        </div>
+    </div>
+{% endblock content %}
